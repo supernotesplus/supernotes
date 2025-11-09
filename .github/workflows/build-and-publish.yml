@@ -13,10 +13,14 @@ on:
 jobs:
   generate_and_publish:
     runs-on: ubuntu-latest
+    # 🚨 حل مشكلة Permission Denied: منح صلاحيات الكتابة المطلوبة
+    permissions:
+      contents: write # لكتابة (Commit) ملفات Markdown و CSV الجديدة
+      pages: write    # للنشر على GitHub Pages
+      
     steps:
       - name: ⚙️ Checkout Repository
         uses: actions/checkout@v4
-        # نستخدم fetch-depth: 0 لضمان جلب سجل Git بالكامل
         with:
           fetch-depth: 0
           
@@ -37,7 +41,6 @@ jobs:
       # 🚀 تشغيل المحرك (التوليد + الحقن)
       # ==========================================================
       - name: 🤖 Run Generator and Injector Engine (via main.go)
-        # سيقوم main.go بتشغيل generator.py (التوليد) ثم inject_affiliates.py (الحقن)
         run: go run main.go
           
       # ==========================================================
@@ -48,7 +51,6 @@ jobs:
         with:
           commit_message: '🤖 Automated: Generated new content and injected affiliate links.'
           branch: main
-          # يشمل ملفات Markdown الجديدة، ملفات CSV المعدلة، وملفات الإعلانات
           file_pattern: 'content/posts/*.md content-engine/*.csv affiliate_lookup.csv data/ads.json' 
           
       # ==========================================================
@@ -60,7 +62,7 @@ jobs:
           hugo-version: 'latest'
           extended: true
       
-      # ⬇️ الخطوات الجديدة: تحميل ثيم PaperMod
+      # ⬇️ حل مشكلة PaperMod not found: تحميل الثيم
       - name: ⬇️ Download PaperMod Theme
         run: |
           git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod || true
@@ -69,11 +71,8 @@ jobs:
       - name: 🏗️ Hugo Build
         run: hugo --minify
         
-      # 🚨 مهم: يجب أن تقوم بتفعيل GitHub Pages في إعدادات المستودع
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          # نشر إلى فرع gh-pages أو فرع النشر الخاص بك (إذا كان مختلفاً)
-          # publish_branch: gh-pages
