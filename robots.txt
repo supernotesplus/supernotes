@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://supernotesplus.github.io/supernotes/sitemap.xml
