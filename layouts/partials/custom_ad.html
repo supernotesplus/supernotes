@@ -1,1 +1,11 @@
-
+{{ if .html_code }}
+    <div class="direct-ad-code" style="text-align: center; margin: 20px 0; border: 1px solid #ddd; padding: 10px;">
+        {{ .html_code | safeHTML }}
+    </div>
+{{ else }}
+    <div class="direct-ad-image" style="text-align: center; margin: 20px 0;">
+        <a href="{{ .url }}" target="_blank" rel="sponsored noopener" title="{{ .alt_text }}">
+            <img src="{{ .image }}" alt="{{ .alt_text }}" style="max-width: 100%; height: auto; border: 0;">
+        </a>
+    </div>
+{{ end }}
