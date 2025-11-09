@@ -1,11 +1,10 @@
 {{ $adID := .ad_id }}
 {{ $adData := $.context.Site.Data.ads }}
-
-{{ if $adData }}
+{{ $page := $.context.Page }} {{ if $adData }}
     {{ if index $adData $adID }}
         <div class="custom-ad-container" style="margin: 20px 0; text-align: center;">
             {{ with index $adData $adID }}
-                {{ $.context.RenderShortcodes (printf "{{< custom_ad url=\"%s\" image=\"%s\" alt_text=\"%s\" html_code=\"%s\" >}}" .url .image .alt_text .html_code) }}
+                {{ $page.RenderShortcodes (printf "{{< custom_ad url=\"%s\" image=\"%s\" alt_text=\"%s\" html_code=\"%s\" >}}" .url .image .alt_text .html_code) }}
             {{ end }}
         </div>
     {{ else }}
