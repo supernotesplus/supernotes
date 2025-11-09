@@ -1,0 +1,14 @@
+{
+  "top_banner": {
+    "url": "https://your-advertiser-link.com/campaign-a",
+    "image": "https://your-repo-link/static/images/banner-300x250.png",
+    "alt_text": "Special Offer for Supernotes Readers",
+    "html_code": ""
+  },
+  "bottom_banner": {
+    "url": "https://another-advertiser.com/offer-b",
+    "image": "https://your-repo-link/static/images/banner-728x90.png",
+    "alt_text": "Exclusive Tool Discount",
+    "html_code": ""
+  }
+}
