@@ -2,11 +2,13 @@ baseURL = 'https://supernotesplus.github.io/supernotes/'
 languageCode = 'ar'
 title = 'مركز الملاحظات الفائقة (Super Notes Hub)'
 theme = 'PaperMod'
-[pagination]
-pagerSize = 10
 enableRobotsTXT = true
 enableGitInfo = false
 enableEmoji = true
+
+# تم نقل paginate إلى [pagination] لحل مشكلة التوافق مع إصدارات Hugo الحديثة
+[pagination]
+pagerSize = 10
 
 [languages.ar]
 languageName = "العربية"
