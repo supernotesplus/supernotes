@@ -6,7 +6,9 @@
     {{ if index $adData $adID }}
         <div class="custom-ad-container" style="margin: 20px 0; text-align: center;">
             {{ with index $adData $adID }}
-                {{ call $page.RenderShortcodes (printf "{{< custom_ad url=\"%s\" image=\"%s\" alt_text=\"%s\" html_code=\"%s\" >}}" .url .image .alt_text .html_code) }}
+                {{ $shortcode := printf "{{< custom_ad url=\"%s\" image=\"%s\" alt_text=\"%s\" html_code=\"%s\" >}}" .url .image .alt_text .html_code }}
+                
+                {{ $page.RenderShortcodes $shortcode }}
             {{ end }}
         </div>
     {{ else }}
