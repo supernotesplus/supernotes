@@ -2,7 +2,8 @@ baseURL = 'https://supernotesplus.github.io/supernotes/'
 languageCode = 'ar'
 title = 'مركز الملاحظات الفائقة (Super Notes Hub)'
 theme = 'PaperMod'
-paginate = 10
+[pagination]
+pagerSize = 10
 enableRobotsTXT = true
 enableGitInfo = false
 enableEmoji = true
