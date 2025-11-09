@@ -5,7 +5,6 @@ on:
     branches:
       - main
   # 💡 الجدولة: تشغيل تلقائي يومي في الساعة 3:00 صباحاً بتوقيت UTC
-  # (يمكنك تغيير هذه الساعة بتعديل قيمة cron)
   schedule:
     - cron: '0 3 * * *'
   # يسمح بالتشغيل اليدوي من واجهة GitHub Actions
@@ -60,7 +59,13 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
-
+      
+      # ⬇️ الخطوات الجديدة: تحميل ثيم PaperMod
+      - name: ⬇️ Download PaperMod Theme
+        run: |
+          git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod || true
+          git submodule update --init --recursive
+          
       - name: 🏗️ Hugo Build
         run: hugo --minify
         
