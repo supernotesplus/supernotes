@@ -1,0 +1,14 @@
+{
+  "daily_limit": 5,
+  "cron_schedule_reminder": "0 3 * * *",
+  "keywords_file": "new_keywords.csv",
+  "section_depth": {
+    "intros": 1,
+    "explanations": 1,
+    "pros": 3,
+    "cons": 2,
+    "steps": 4,
+    "tips": 3,
+    "cta": 1
+  }
+}
