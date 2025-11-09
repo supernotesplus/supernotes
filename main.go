@@ -12,9 +12,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	// 1. تثبيت الحزم الضرورية لـ Python
-	fmt.Println("⚙️ تثبيت الحزم المطلوبة (pandas, openai)...")
-	cmd := exec.Command("pip", "install", "pandas", "openai", "requests")
+	// 1. تثبيت الحزم الضرورية لـ Python (تم إضافة python-slugify)
+	fmt.Println("⚙️ تثبيت الحزم المطلوبة (pandas, openai, python-slugify)...")
+	// تم إضافة "python-slugify" إلى قائمة التثبيت
+	cmd := exec.Command("pip", "install", "pandas", "openai", "requests", "python-slugify")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
