@@ -1,0 +1,14 @@
+{{ $adID := .ad_id }}
+{{ $adData := $.context.Site.Data.ads }}
+
+{{ if $adData }}
+    {{ if index $adData $adID }}
+        <div class="custom-ad-container" style="margin: 20px 0; text-align: center;">
+            {{ with index $adData $adID }}
+                {{- partial "shortcodes/custom_ad.html" . -}}
+            {{ end }}
+        </div>
+    {{ else }}
+        {{ end }}
+{{ else }}
+    {{ end }}
