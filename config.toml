@@ -1,0 +1,59 @@
+baseURL = 'https://supernotesplus.github.io/supernotes/'
+languageCode = 'ar'
+title = 'مركز الملاحظات الفائقة (Super Notes Hub)'
+theme = 'PaperMod'
+paginate = 10
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+
+[languages.ar]
+languageName = "العربية"
+title = "مركز الملاحظات الفائقة"
+contentDir = "content"
+rtl = true
+
+[languages.ar.params]
+description = "منصة آلية لتوليد محتوى عالي الجودة في مجالات متنوعة."
+homeInfoParams = { title = "مرحباً بكم في مركز الملاحظات الفائقة" }
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[params]
+defaultTheme = "light"
+disableThemeToggle = false
+ShowShareButtons = true
+ShowReadingTime = true
+ShowPostNavLinks = true
+ShowCodeCopyButtons = true
+ShowBreadCrumbs = true
+ShowToc = true
+TocOpen = true
+VisitCount = true
+
+# إعدادات PaperMod (الضرورية)
+[params.profileMode]
+enabled = true
+title = "مركز الملاحظات الفائقة"
+subtitle = "بوابة المعرفة الآلية"
+imageUrl = ""
+imageTitle = "شعار الموقع"
+imageWidth = 120
+imageHeight = 120
+
+[[params.profileMode.buttons]]
+name = "تصفح المقالات"
+url = "posts"
+
+# إعدادات الـ URL Inspection
+[sitemap]
+filename = "sitemap.xml"
+
+# إعدادات الـ Google Analytics
+[services]
+[services.googleAnalytics]
+# سيتم إضافة الكود الخاص بك هنا لاحقاً (مثال: G-XXXXXXXXXX)
+# trackingID = ""
